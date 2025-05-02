@@ -11,13 +11,14 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Init(100);
     }
 
-    void Init(int newHealth)
+    public void Init(int newHealth,float _moveSpeed)
     {
         maxHealth = newHealth;
         health = maxHealth;
+
+        moveSpeed = _moveSpeed;
     }
 
     private void Update()
@@ -29,11 +30,15 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         health -= dmg;
+        AudioManager.instance.PlaySFX(9);
         if (health <= 0) Death();
     }
 
     private void Death()
     {
+        ScoreManager.instance.AddScore(1);  
+        AudioManager.instance.PlaySFX(7);
+        
         Instantiate(deathFX, this.transform.position, quaternion.identity);
         Destroy(this.gameObject);
     }

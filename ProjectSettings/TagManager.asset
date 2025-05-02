@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - BulletHit
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Bullet
   - BulletWall
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

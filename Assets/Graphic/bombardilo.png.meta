@@ -121,10 +121,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 254
-        width: 1536
+        width: 1535
         height: 770
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: bombardilo_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1523
-        height: 254
+        x: 423
+        y: 1023
+        width: 617
+        height: 377
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: bombardilo_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 252
-        width: 5
+        x: 12
+        y: 592
+        width: 14
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -177,6 +177,72 @@ TextureImporter:
       bones: []
       spriteID: f09116398c45cb646986103528c2371f
       internalID: -1653883577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombardilo_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1523
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cba5dd4749e0949a1a1782f3277a70
+      internalID: -180444970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombardilo_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 252
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55574c4557919b542a94ec5a00fc51c7
+      internalID: -1687995266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombardilo_5
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1089
+        width: 247
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edec5c2dba09b5c4598edb0c76f361db
+      internalID: 2119752459
       vertices: []
       indices: 
       edges: []
@@ -198,6 +264,9 @@ TextureImporter:
       bombardilo_0: -1662124883
       bombardilo_1: 2128817522
       bombardilo_2: -1653883577
+      bombardilo_3: -180444970
+      bombardilo_4: -1687995266
+      bombardilo_5: 2119752459
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

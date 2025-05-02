@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Projectile2D : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class Projectile2D : MonoBehaviour
     [SerializeField] private float bulletFireDelay=0.3f,bulletFireTimer;
     [Space]
 
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float jumpForce;
-    // Update is called once per frame
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         if (bulletFireTimer > 0) bulletFireTimer -= Time.deltaTime;
@@ -33,6 +39,7 @@ public class Projectile2D : MonoBehaviour
 
                 if (bulletFireTimer > 0) return;
                 bulletFireTimer = bulletFireDelay;
+                AudioManager.instance.PlaySFX(15);
 
                 Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, hit.point, 1f);
                 // สร้างกระสุนใหม่
