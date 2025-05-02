@@ -21,6 +21,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] obstascleSpawnPos;
     [SerializeField] private float obstacleSpawnTime, baseObstacleSpawnTime = 5f, obstacleSpawnTimer;
     
+    [Space]
+    [SerializeField] private Gem gemPrefab;
+    [SerializeField] private float gemSpawnTime, baseGemSpawnTime = 1f, gemSpawnTimer;
+    [SerializeField] private float minY, maxY;
+    
     public static EnemySpawner instance;
 
     private void Awake()
@@ -31,10 +36,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        
         HandleStageLevel();
         HandleSpawnEnemy();
         HandleSpawnObstacle();
+        HandleSpawnGem();
     }
 
     private void HandleStageLevel()
@@ -75,6 +80,19 @@ public class EnemySpawner : MonoBehaviour
             
             enemySpawnTimer = 0;
             enemySpawnTime = Random.Range(0,
+                Mathf.Clamp(baseEnemySpawnTime - ((float)stageLevel / 100), 0, baseEnemySpawnTime));
+        }
+    }
+    private void HandleSpawnGem()
+    {
+        if (gemSpawnTimer < gemSpawnTime) gemSpawnTimer += Time.deltaTime;
+        else
+        {
+            Gem newGem = Instantiate(gemPrefab, new Vector3(8,Random.Range(minY,maxY)),quaternion.identity);
+            newGem.Init(enemyMoveSpeed);
+            
+            gemSpawnTimer = 0;
+            gemSpawnTime = Random.Range(0,
                 Mathf.Clamp(baseEnemySpawnTime - ((float)stageLevel / 100), 0, baseEnemySpawnTime));
         }
     }

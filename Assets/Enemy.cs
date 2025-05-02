@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         ScoreManager.instance.AddScore(1);  
-        AudioManager.instance.PlaySFX(7);
+        AudioManager.instance.PlaySFX(9);
         
         Instantiate(deathFX, this.transform.position, quaternion.identity);
         Destroy(this.gameObject);

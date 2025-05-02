@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2c489bd9a0eb3a4982eef025e1a4680
+guid: 42a7d8ad855a89a4dbd7166349257704
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 30657303976387495
-    second: bombardilo_baipud_0
+      213: -3495674672351711649
+    second: hurtFX_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bombardilo_baipud_0
+      name: hurtFX_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 226
-        height: 406
+        width: 1080
+        height: 720
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a3a841d7aaec6000800000000000000
-      internalID: 30657303976387495
+      spriteID: f5e6528086edc7fc0800000000000000
+      internalID: -3495674672351711649
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bombardilo_baipud_0: 30657303976387495
+      hurtFX_0: -3495674672351711649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

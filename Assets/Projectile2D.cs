@@ -44,7 +44,7 @@ public class Projectile2D : MonoBehaviour
                 Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, hit.point, 1f);
                 // สร้างกระสุนใหม่
                 Rigidbody2D firedBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
-                Destroy(firedBullet,3f);
+                Destroy(firedBullet.gameObject,3f);
 
                 // ใส่ความเร็วให้กระสุน
                 firedBullet.linearVelocity = projectileVelocity;

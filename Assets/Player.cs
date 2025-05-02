@@ -23,13 +23,22 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!other.CompareTag("Obstacle")) return;
-        if (hitTimer < hitDelay) return;
+        if (other.CompareTag("Obstacle"))
+        {
+            if (hitTimer < hitDelay) return;
         
-        TakeDamage(25);
+            TakeDamage(25);
 
-        EnemySpawner.instance.stageLevel -= 4;
-        hitTimer = 0;
+            EnemySpawner.instance.stageLevel -= 4;
+            hitTimer = 0;
+        }
+
+        if (other.CompareTag("Gem"))
+        {
+            AudioManager.instance.PlaySFX(4);
+            ScoreManager.instance.AddGem(1);
+            Destroy(other.gameObject);
+        }
     }
 
     void TakeDamage(int _damage)
@@ -37,7 +46,8 @@ public class Player : MonoBehaviour
         health -= _damage;
         healthSlider.value = (float)health / maxHealth;
         if (health <= 0) Death();
-        
+
+        ScoreManager.instance.ShowHurtFX();
         AudioManager.instance.PlaySFX(20);
     }
 
