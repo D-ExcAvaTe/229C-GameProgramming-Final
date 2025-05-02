@@ -6596,7 +6596,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6715361899453363935, guid: 78ea39e60e1833f4381c614f406e472c, type: 3}
   bulletFireDelay: 0.15
   bulletFireTimer: 0
-  jumpForce: 35
+  jumpForce: 100
 --- !u!50 &1586178245
 Rigidbody2D:
   serializedVersion: 5
