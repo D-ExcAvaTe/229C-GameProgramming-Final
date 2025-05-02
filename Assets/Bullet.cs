@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletDmg = 5, destroyDelay = 7f;
+    public float bulletDmg = 5;
     public GameObject hitFx;
 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Destroy(gameObject,destroyDelay);
         if (!other.gameObject.CompareTag("BulletHit")) return;
         transform.parent = other.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject,destroyDelay);
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
         if (enemy!=null)
         {
