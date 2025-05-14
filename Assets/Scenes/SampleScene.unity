@@ -6596,7 +6596,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6715361899453363935, guid: 78ea39e60e1833f4381c614f406e472c, type: 3}
   bulletFireDelay: 0.15
   bulletFireTimer: 0
-  jumpForce: 100
+  baseBulletFireDelay: 0.3
+  bulletFireMultiplier: 1
+  jumpForce: 200
 --- !u!50 &1586178245
 Rigidbody2D:
   serializedVersion: 5
@@ -6682,6 +6684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead99498469da7e479c99ec070d68c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 1586178244}
   health: 0
   maxHealth: 100
   healthSlider: {fileID: 355646269}
@@ -7319,10 +7322,16 @@ MonoBehaviour:
   obstacleSpawnTimer: 0
   gemPrefab: {fileID: -5982116650657013091, guid: 85fea59abb3239440a8bd9b1527e1c06, type: 3}
   gemSpawnTime: 0
-  baseGemSpawnTime: 1
+  baseGemSpawnTime: 3
   gemSpawnTimer: 0
   minY: -3.5
   maxY: 3.5
+  powerUpPrefab:
+  - {fileID: 7819328014760886796, guid: c7999a1a64e035343ac6e99417f36d36, type: 3}
+  - {fileID: 4694157709312522714, guid: 57bc9c29edb400b43958f019f994f474, type: 3}
+  powerUpSpawnTime: 0
+  basePowerUpSpawnTime: 12
+  powerUpSpawnTimer: 0
 --- !u!4 &1751977798
 Transform:
   m_ObjectHideFlags: 0
