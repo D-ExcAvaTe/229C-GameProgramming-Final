@@ -4,8 +4,8 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{
-    [SerializeField] private int health, maxHealth = 100;
+{ 
+    public int health, maxHealth = 100;
     [SerializeField] private Slider healthSlider;
 
     [SerializeField] private float hitDelay=1f, hitTimer;
@@ -49,6 +49,15 @@ public class Player : MonoBehaviour
 
         ScoreManager.instance.ShowHurtFX();
         AudioManager.instance.PlaySFX(20);
+    }
+    
+    public void TakeHeal(int _heal)
+    {
+        health += _heal;
+        healthSlider.value = (float)health / maxHealth;
+        if (health > maxHealth) health = maxHealth;
+        
+        AudioManager.instance.PlaySFX(8);
     }
 
     void Death()

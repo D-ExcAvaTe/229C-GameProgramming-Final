@@ -26,6 +26,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float gemSpawnTime, baseGemSpawnTime = 1f, gemSpawnTimer;
     [SerializeField] private float minY, maxY;
     
+    [Space]
+    [SerializeField] private PowerUp powerUpPrefab;
+    [SerializeField] private float powerUpSpawnTime, basePowerUpSpawnTime = 1f, powerUpSpawnTimer;
+    
     public static EnemySpawner instance;
 
     private void Awake()
@@ -40,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
         HandleSpawnEnemy();
         HandleSpawnObstacle();
         HandleSpawnGem();
+        HandleSpawnPowerUp();
     }
 
     private void HandleStageLevel()
@@ -93,7 +98,20 @@ public class EnemySpawner : MonoBehaviour
             
             gemSpawnTimer = 0;
             gemSpawnTime = Random.Range(0,
-                Mathf.Clamp(baseEnemySpawnTime - ((float)stageLevel / 100), 0, baseEnemySpawnTime));
+                Mathf.Clamp(baseGemSpawnTime - ((float)stageLevel / 100), 0, baseGemSpawnTime));
+        }
+    }
+    private void HandleSpawnPowerUp()
+    {
+        if (powerUpSpawnTimer < powerUpSpawnTime) powerUpSpawnTimer += Time.deltaTime;
+        else
+        {
+            PowerUp newPowerUp = Instantiate(powerUpPrefab, new Vector3(8,Random.Range(minY,maxY)),quaternion.identity);
+            newPowerUp.Init(enemyMoveSpeed);
+            
+            powerUpSpawnTimer = 0;
+            powerUpSpawnTime = Random.Range(0,
+                Mathf.Clamp(basePowerUpSpawnTime - ((float)stageLevel / 100), 0, basePowerUpSpawnTime));
         }
     }
 }
