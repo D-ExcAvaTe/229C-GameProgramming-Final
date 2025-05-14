@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 { 
+    public Projectile2D projectile;
     public int health, maxHealth = 100;
     [SerializeField] private Slider healthSlider;
 

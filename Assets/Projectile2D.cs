@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Projectile2D : MonoBehaviour
@@ -9,6 +10,8 @@ public class Projectile2D : MonoBehaviour
 
     [SerializeField] Rigidbody2D bulletPrefab;
     [SerializeField] private float bulletFireDelay=0.3f,bulletFireTimer;
+    [SerializeField] private float baseBulletFireDelay = 0.3f;
+    [SerializeField] private float bulletFireMultiplier = 1f;
     [Space]
 
     [SerializeField] private float jumpForce;
@@ -21,6 +24,7 @@ public class Projectile2D : MonoBehaviour
 
     void Update()
     {
+        bulletFireDelay = baseBulletFireDelay * bulletFireMultiplier;
         if (bulletFireTimer > 0) bulletFireTimer -= Time.deltaTime;
         
         if (Input.GetMouseButton(0))
@@ -63,4 +67,17 @@ public class Projectile2D : MonoBehaviour
         return new Vector2(velocityX, velocityY);
 
     }// CalculateProjectileVelocity
+
+    public IEnumerator FireSpeedCoroutine(float multiplier, float duration)
+    {
+        bulletFireMultiplier = multiplier;
+        yield return new WaitForSeconds(duration);
+        bulletFireMultiplier = 1f;
+    }
+
+    public void StartFireCoroutine(float multiplier, float duration)
+    {
+        StartCoroutine(FireSpeedCoroutine(multiplier, duration));
+    }
+    
 }

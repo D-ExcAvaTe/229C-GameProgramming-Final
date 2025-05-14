@@ -4,7 +4,6 @@ using UnityEngine;
 abstract class PowerUp : MonoBehaviour
 {
     abstract public void DoPowerUp(Player player);
-
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Done Laew");

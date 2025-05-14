@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minY, maxY;
     
     [Space]
-    [SerializeField] private PowerUp powerUpPrefab;
+    [SerializeField] private PowerUp[] powerUpPrefab;
     [SerializeField] private float powerUpSpawnTime, basePowerUpSpawnTime = 1f, powerUpSpawnTimer;
     
     public static EnemySpawner instance;
@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
         if (powerUpSpawnTimer < powerUpSpawnTime) powerUpSpawnTimer += Time.deltaTime;
         else
         {
-            PowerUp newPowerUp = Instantiate(powerUpPrefab, new Vector3(8,Random.Range(minY,maxY)),quaternion.identity);
+            PowerUp newPowerUp = Instantiate(powerUpPrefab[Random.Range(0, powerUpPrefab.Length)], new Vector3(8,Random.Range(minY,maxY)),quaternion.identity);
             newPowerUp.Init(enemyMoveSpeed);
             
             powerUpSpawnTimer = 0;
