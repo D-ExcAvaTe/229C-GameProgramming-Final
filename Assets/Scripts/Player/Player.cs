@@ -44,6 +44,13 @@ public class Player : MonoBehaviour
 
     void TakeDamage(int _damage)
     {
+        if (projectile.isShielding)
+        {
+            projectile.StopShield();
+            AudioManager.instance.PlaySFX(21);
+            return;
+        }
+
         health -= _damage;
         healthSlider.value = (float)health / maxHealth;
         if (health <= 0) Death();

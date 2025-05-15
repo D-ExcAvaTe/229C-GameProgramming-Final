@@ -8,7 +8,7 @@ public class ParalaxBackground : MonoBehaviour
     [SerializeField] private float baseMoveSpeed,moveSpeed;
     private void Update()
     {
-        moveSpeed = baseMoveSpeed * (1 + ((float)EnemySpawner.instance.stageLevel / 10));;
+        moveSpeed = baseMoveSpeed * (1 + ((float)EnemySpawner.instance.stageLevel / 50));;
         groundSurfaceEffector.speed = moveSpeed;
         transform.position += new Vector3(moveSpeed * Time.deltaTime, transform.position.y);
     }

@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int enemyHealth = 10;
 
     [Space] [Header("Obstacle Settings")]
-    [SerializeField] private Obstacle obstaclePrefab;
+    [SerializeField] private Obstacle[] obstaclePrefab;
     [SerializeField] private Transform[] obstascleSpawnPos;
     [SerializeField] private float obstacleSpawnTime, baseObstacleSpawnTime = 5f, obstacleSpawnTimer;
     
@@ -40,6 +40,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        enemyMoveSpeed = baseEnemyMoveSpeed * (1 + ((float)stageLevel / 20));
+        
         HandleStageLevel();
         HandleSpawnEnemy();
         HandleSpawnObstacle();
@@ -61,15 +63,15 @@ public class EnemySpawner : MonoBehaviour
         if (obstacleSpawnTimer < obstacleSpawnTime) obstacleSpawnTimer += Time.deltaTime;
         else
         {
-            enemyMoveSpeed = baseEnemyMoveSpeed * (1 + ((float)stageLevel / 100));
 
-            Obstacle newObstacle = Instantiate(obstaclePrefab,
+            Obstacle newObstacle = Instantiate(obstaclePrefab[Random.Range(0,obstaclePrefab.Length)],
                 obstascleSpawnPos[Random.Range(0, obstascleSpawnPos.Length)].transform.position, quaternion.identity);
             newObstacle.Init(enemyMoveSpeed);
             
             obstacleSpawnTimer = 0;
             obstacleSpawnTime = Random.Range(0,
-                Mathf.Clamp(baseObstacleSpawnTime - ((float)stageLevel / 100), 0, baseObstacleSpawnTime));
+                Mathf.Clamp(baseObstacleSpawnTime - ((float)stageLevel / 20), 0, baseObstacleSpawnTime- ((float)stageLevel / 50)));
+   
         }
     }
     private void HandleSpawnEnemy()
@@ -77,7 +79,6 @@ public class EnemySpawner : MonoBehaviour
         if (enemySpawnTimer < enemySpawnTime) enemySpawnTimer += Time.deltaTime;
         else
         {
-            enemyMoveSpeed = baseEnemyMoveSpeed * (1 + ((float)stageLevel / 100));
             enemyHealth = (int)(10 * (1 + ((float)stageLevel / 100)));                             
             
             Enemy newEnemy = Instantiate(enemyPrefab, enemySpawnPos.transform.position,quaternion.identity);

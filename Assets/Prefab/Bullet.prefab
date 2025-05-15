@@ -175,6 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827cd618932fbb14f8582ce589953d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDmg: 5
-  destroyDelay: 3
+  bulletDmg: 9
   hitFx: {fileID: 3548588485384254792, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}

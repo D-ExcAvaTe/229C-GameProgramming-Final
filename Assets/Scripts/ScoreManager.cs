@@ -18,7 +18,9 @@ public class ScoreManager : MonoBehaviour
     
     private IEnumerator hurtFxCoroutine;
     public static ScoreManager instance;
-
+    [Space]
+    
+    [SerializeField] private GameObject TutorialPanel;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -30,6 +32,15 @@ public class ScoreManager : MonoBehaviour
         gem = PlayerPrefs.GetInt("gem", 1);
         textScore.text = $"x{score}";
         textGem.text = $"x{gem}";
+        
+        TutorialPanel.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (TutorialPanel.activeSelf)
+            Time.timeScale = 0;
+        else Time.timeScale = 1;
     }
 
     public void AddScore(int newScore)

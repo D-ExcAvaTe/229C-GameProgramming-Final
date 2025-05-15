@@ -3,6 +3,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public bool isSpinning = false;
 
     public void Init(float _moveSpeed)
     {
@@ -12,6 +13,7 @@ public class Obstacle : MonoBehaviour
     private void Update()
     {
         transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0);
+        if (isSpinning) transform.Rotate(0, 0, (moveSpeed*10) * Time.deltaTime, Space.World);
     }
 
 }
