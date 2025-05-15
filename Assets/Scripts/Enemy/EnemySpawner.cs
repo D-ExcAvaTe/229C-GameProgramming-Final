@@ -83,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
             
             Enemy newEnemy = Instantiate(enemyPrefab, enemySpawnPos.transform.position,quaternion.identity);
             newEnemy.Init(enemyHealth, enemyMoveSpeed);
+            newEnemy.transform.localScale *= Random.Range(0.5f, 2f);
             
             enemySpawnTimer = 0;
             enemySpawnTime = Random.Range(0,
